@@ -1,6 +1,5 @@
-require "rubygems"
-require 'sinatra'
-require "aws/s3"
+require "bundler/setup"
+
 
 get '/' do
   erb :index
