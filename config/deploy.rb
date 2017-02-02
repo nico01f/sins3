@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:nico01f/sins3.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/opt/deployer/apps'
+set :deploy_to, '/opt/deployer/apps/sins3'
 
 # Default value for :scm is :git
 set :scm, :git

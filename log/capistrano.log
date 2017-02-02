@@ -1,0 +1,91 @@
+# Logfile created on 2017-02-02 17:27:27 -0300 by logger.rb/v1.2.7
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-02-02 17:27:27 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [49f66222] Running /usr/bin/env mkdir -p /tmp/sins3/ as deployer@192.168.121.159
+ DEBUG [49f66222] Command: /usr/bin/env mkdir -p /tmp/sins3/
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-02-02 17:31:52 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5db1517a] Running /usr/bin/env mkdir -p /tmp/sins3/ as deployer@192.168.121.159
+ DEBUG [5db1517a] Command: /usr/bin/env mkdir -p /tmp/sins3/
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-02-02 17:40:31 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0bb9a16e] Running /usr/bin/env mkdir -p /tmp/sins3/ as deployer@vagrant
+ DEBUG [0bb9a16e] Command: /usr/bin/env mkdir -p /tmp/sins3/
+  INFO [0bb9a16e] Finished in 0.080 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/sins3/git-ssh.sh 0.0%
+  INFO Uploading /tmp/sins3/git-ssh.sh 100.0%
+  INFO [8417447d] Running /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh as deployer@vagrant
+ DEBUG [8417447d] Command: /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh
+  INFO [8417447d] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [81ab894e] Running /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git as deployer@vagrant
+ DEBUG [81ab894e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git )
+ DEBUG [81ab894e] 	6b5aa083d039b3f7946d66bc89604bc486b65a3e	refs/heads/autoreload
+6ff35d5df2e15933707cd500ebd2620e6e4ca4b9	refs/heads/change_gem_s3
+e695e483d4b8c88242e4063fa29752d8db95636b	refs/heads/guard-rack
+21aa5729598004e230da8cf325963eca5cea5b60	refs/heads/master
+7299c54e0e1cfce94569a3af9f742cabc5c7f518	refs/heads/test_pr
+  INFO [81ab894e] Finished in 2.526 seconds with exit status 0 (successful).
+  INFO [f41eec0b] Running /usr/bin/env mkdir -p /opt/deployer/apps/shared /opt/deployer/apps/releases as deployer@vagrant
+ DEBUG [f41eec0b] Command: /usr/bin/env mkdir -p /opt/deployer/apps/shared /opt/deployer/apps/releases
+  INFO [f41eec0b] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [98aa6fbe] Running [ -f /opt/deployer/apps/current/REVISION ] as deployer@vagrant
+ DEBUG [98aa6fbe] Command: [ -f /opt/deployer/apps/current/REVISION ]
+ DEBUG [98aa6fbe] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [62840d87] Running [ -f /opt/deployer/apps/repo/HEAD ] as deployer@vagrant
+ DEBUG [62840d87] Command: [ -f /opt/deployer/apps/repo/HEAD ]
+ DEBUG [62840d87] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [b0067fcb] Running if test ! -d /opt/deployer/apps; then echo "Directory does not exist '/opt/deployer/apps'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [b0067fcb] Command: if test ! -d /opt/deployer/apps; then echo "Directory does not exist '/opt/deployer/apps'" 1>&2; false; fi
+ DEBUG [b0067fcb] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [e9280fc0] Running /usr/bin/env git clone --mirror git@github.com:nico01f/sins3.git /opt/deployer/apps/repo as deployer@vagrant
+ DEBUG [e9280fc0] Command: cd /opt/deployer/apps && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git clone --mirror git@github.com:nico01f/sins3.git /opt/deployer/apps/repo )
+ DEBUG [e9280fc0] 	Cloning into bare repository '/opt/deployer/apps/repo'...
+  INFO [e9280fc0] Finished in 3.693 seconds with exit status 0 (successful).
+ DEBUG [562c7465] Running if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [562c7465] Command: if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi
+ DEBUG [562c7465] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [8c49f15b] Running /usr/bin/env git remote update --prune as deployer@vagrant
+ DEBUG [8c49f15b] Command: cd /opt/deployer/apps/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [8c49f15b] 	Fetching origin
+  INFO [8c49f15b] Finished in 2.593 seconds with exit status 0 (successful).
+ DEBUG [8109dcce] Running if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [8109dcce] Command: if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi
+ DEBUG [8109dcce] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [c7d2c7cc] Running /usr/bin/env mkdir -p /opt/deployer/apps/releases/20170202204034 as deployer@vagrant
+ DEBUG [c7d2c7cc] Command: cd /opt/deployer/apps/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env mkdir -p /opt/deployer/apps/releases/20170202204034 )
+  INFO [c7d2c7cc] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [61fa0a47] Running /usr/bin/env git archive master | tar -x -f - -C /opt/deployer/apps/releases/20170202204034 as deployer@vagrant
+ DEBUG [61fa0a47] Command: cd /opt/deployer/apps/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git archive master | tar -x -f - -C /opt/deployer/apps/releases/20170202204034 )
+  INFO [61fa0a47] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [9f623e59] Running if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [9f623e59] Command: if test ! -d /opt/deployer/apps/repo; then echo "Directory does not exist '/opt/deployer/apps/repo'" 1>&2; false; fi
+ DEBUG [9f623e59] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [254dca83] Running /usr/bin/env git rev-list --max-count=1 master as deployer@vagrant
+ DEBUG [254dca83] Command: cd /opt/deployer/apps/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [254dca83] 	21aa5729598004e230da8cf325963eca5cea5b60
+ DEBUG [254dca83] Finished in 0.012 seconds with exit status 0 (successful).
+ DEBUG [f74a46d6] Running if test ! -d /opt/deployer/apps/releases/20170202204034; then echo "Directory does not exist '/opt/deployer/apps/releases/20170202204034'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [f74a46d6] Command: if test ! -d /opt/deployer/apps/releases/20170202204034; then echo "Directory does not exist '/opt/deployer/apps/releases/20170202204034'" 1>&2; false; fi
+ DEBUG [f74a46d6] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [5d2577af] Running /usr/bin/env echo "21aa5729598004e230da8cf325963eca5cea5b60" >> REVISION as deployer@vagrant
+ DEBUG [5d2577af] Command: cd /opt/deployer/apps/releases/20170202204034 && /usr/bin/env echo "21aa5729598004e230da8cf325963eca5cea5b60" >> REVISION
+  INFO [5d2577af] Finished in 0.045 seconds with exit status 0 (successful).
+  INFO [086a3811] Running /usr/bin/env ln -s /opt/deployer/apps/releases/20170202204034 /opt/deployer/apps/releases/current as deployer@vagrant
+ DEBUG [086a3811] Command: /usr/bin/env ln -s /opt/deployer/apps/releases/20170202204034 /opt/deployer/apps/releases/current
+  INFO [086a3811] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [a291d485] Running /usr/bin/env mv /opt/deployer/apps/releases/current /opt/deployer/apps as deployer@vagrant
+ DEBUG [a291d485] Command: /usr/bin/env mv /opt/deployer/apps/releases/current /opt/deployer/apps
+  INFO [a291d485] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [461c161c] Running /usr/bin/env ls -xtr /opt/deployer/apps/releases as deployer@vagrant
+ DEBUG [461c161c] Command: /usr/bin/env ls -xtr /opt/deployer/apps/releases
+ DEBUG [461c161c] 	20170202204034
+ DEBUG [461c161c] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [2b3bc1f9] Running if test ! -d /opt/deployer/apps/releases; then echo "Directory does not exist '/opt/deployer/apps/releases'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [2b3bc1f9] Command: if test ! -d /opt/deployer/apps/releases; then echo "Directory does not exist '/opt/deployer/apps/releases'" 1>&2; false; fi
+ DEBUG [2b3bc1f9] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [b0567370] Running /usr/bin/env echo "Branch master (at 21aa5729598004e230da8cf325963eca5cea5b60) deployed as release 20170202204034 by nicof" >> /opt/deployer/apps/revisions.log as deployer@vagrant
+ DEBUG [b0567370] Command: cd /opt/deployer/apps/releases && /usr/bin/env echo "Branch master (at 21aa5729598004e230da8cf325963eca5cea5b60) deployed as release 20170202204034 by nicof" >> /opt/deployer/apps/revisions.log
+  INFO [b0567370] Finished in 0.007 seconds with exit status 0 (successful).
