@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
+set :branch, ENV.fetch("CAPISTRANO_BRANCH", "staging")
 set :application, 'sins3'
 set :repo_url, 'git@github.com:nico01f/sins3.git'
 
@@ -14,7 +15,7 @@ set :deploy_to, '/opt/deployer/apps/sins3'
 set :scm, :git
 
 # Default value for :format is :airbrussh.
-set :format, :airbrussh
+#set :format, :airbrussh
 
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
