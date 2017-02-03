@@ -251,3 +251,137 @@ d606125bd7e949f2d44e5c9bdcd036449640ba5e	refs/heads/master
   INFO [efaec162] Running /usr/bin/env echo "Branch qa (at 72f6e6e2545829b9901e83e943693a2bf35c0f61) deployed as release 20170203140957 by nicof" >> /opt/deployer/apps/sins3/revisions.log as deployer@vagrant
  DEBUG [efaec162] Command: cd /opt/deployer/apps/sins3/releases && /usr/bin/env echo "Branch qa (at 72f6e6e2545829b9901e83e943693a2bf35c0f61) deployed as release 20170203140957 by nicof" >> /opt/deployer/apps/sins3/revisions.log
   INFO [efaec162] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-02-03 11:23:01 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5b81021e] Running /usr/bin/env mkdir -p /tmp/sins3/ as deployer@vagrant
+ DEBUG [5b81021e] Command: /usr/bin/env mkdir -p /tmp/sins3/
+  INFO [5b81021e] Finished in 0.083 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/sins3/git-ssh.sh 0.0%
+  INFO Uploading /tmp/sins3/git-ssh.sh 100.0%
+  INFO [4a8d10d8] Running /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh as deployer@vagrant
+ DEBUG [4a8d10d8] Command: /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh
+  INFO [4a8d10d8] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [b84e4cb7] Running /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git as deployer@vagrant
+ DEBUG [b84e4cb7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git )
+ DEBUG [b84e4cb7] 	Error reading response length from authentication socket.
+ DEBUG [b84e4cb7] 	6b5aa083d039b3f7946d66bc89604bc486b65a3e	refs/heads/autoreload
+6ff35d5df2e15933707cd500ebd2620e6e4ca4b9	refs/heads/change_gem_s3
+e695e483d4b8c88242e4063fa29752d8db95636b	refs/heads/guard-rack
+b05f2d5aadef354d377e592e3b5080fcdec2d21f	refs/heads/master
+72f6e6e2545829b9901e83e943693a2bf35c0f61	refs/heads/qa
+7299c54e0e1cfce94569a3af9f742cabc5c7f518	refs/heads/test_pr
+  INFO [b84e4cb7] Finished in 3.529 seconds with exit status 0 (successful).
+  INFO [be233c1d] Running /usr/bin/env mkdir -p /opt/deployer/apps/sins3/shared /opt/deployer/apps/sins3/releases as deployer@vagrant
+ DEBUG [be233c1d] Command: /usr/bin/env mkdir -p /opt/deployer/apps/sins3/shared /opt/deployer/apps/sins3/releases
+  INFO [be233c1d] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [997997bd] Running [ -f /opt/deployer/apps/sins3/current/REVISION ] as deployer@vagrant
+ DEBUG [997997bd] Command: [ -f /opt/deployer/apps/sins3/current/REVISION ]
+ DEBUG [997997bd] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [ab2646a0] Running [ -f /opt/deployer/apps/sins3/repo/HEAD ] as deployer@vagrant
+ DEBUG [ab2646a0] Command: [ -f /opt/deployer/apps/sins3/repo/HEAD ]
+ DEBUG [ab2646a0] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [1e9ca1e5] Running if test ! -d /opt/deployer/apps/sins3; then echo "Directory does not exist '/opt/deployer/apps/sins3'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [1e9ca1e5] Command: if test ! -d /opt/deployer/apps/sins3; then echo "Directory does not exist '/opt/deployer/apps/sins3'" 1>&2; false; fi
+ DEBUG [1e9ca1e5] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [e3e80f05] Running /usr/bin/env git clone --mirror git@github.com:nico01f/sins3.git /opt/deployer/apps/sins3/repo as deployer@vagrant
+ DEBUG [e3e80f05] Command: cd /opt/deployer/apps/sins3 && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git clone --mirror git@github.com:nico01f/sins3.git /opt/deployer/apps/sins3/repo )
+ DEBUG [e3e80f05] 	Cloning into bare repository '/opt/deployer/apps/sins3/repo'...
+ DEBUG [e3e80f05] 	Error reading response length from authentication socket.
+  INFO [e3e80f05] Finished in 7.752 seconds with exit status 0 (successful).
+ DEBUG [e17e5a89] Running if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [e17e5a89] Command: if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi
+ DEBUG [e17e5a89] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [2a66124a] Running /usr/bin/env git remote update --prune as deployer@vagrant
+ DEBUG [2a66124a] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [2a66124a] 	Fetching origin
+ DEBUG [2a66124a] 	Error reading response length from authentication socket.
+  INFO [2a66124a] Finished in 2.106 seconds with exit status 0 (successful).
+ DEBUG [086ecf51] Running if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [086ecf51] Command: if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi
+ DEBUG [086ecf51] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [677d1ef1] Running /usr/bin/env mkdir -p /opt/deployer/apps/sins3/releases/20170203142305 as deployer@vagrant
+ DEBUG [677d1ef1] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env mkdir -p /opt/deployer/apps/sins3/releases/20170203142305 )
+  INFO [677d1ef1] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [d1f38435] Running /usr/bin/env git archive staging | tar -x -f - -C /opt/deployer/apps/sins3/releases/20170203142305 as deployer@vagrant
+ DEBUG [d1f38435] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git archive staging | tar -x -f - -C /opt/deployer/apps/sins3/releases/20170203142305 )
+ DEBUG [d1f38435] 	fatal: Not a valid object name
+ DEBUG [d1f38435] 	tar: Esto no parece un archivo tar
+tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-02-03 11:31:15 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b044c2f7] Running /usr/bin/env mkdir -p /tmp/sins3/ as deployer@vagrant
+ DEBUG [b044c2f7] Command: /usr/bin/env mkdir -p /tmp/sins3/
+  INFO [b044c2f7] Finished in 0.234 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/sins3/git-ssh.sh 0.0%
+  INFO Uploading /tmp/sins3/git-ssh.sh 100.0%
+  INFO [3c40a12d] Running /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh as deployer@vagrant
+ DEBUG [3c40a12d] Command: /usr/bin/env chmod +rx /tmp/sins3/git-ssh.sh
+  INFO [3c40a12d] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [6baf1f09] Running /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git as deployer@vagrant
+ DEBUG [6baf1f09] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:nico01f/sins3.git )
+ DEBUG [6baf1f09] 	Error reading response length from authentication socket.
+ DEBUG [6baf1f09] 	6b5aa083d039b3f7946d66bc89604bc486b65a3e	refs/heads/autoreload
+6ff35d5df2e15933707cd500ebd2620e6e4ca4b9	refs/heads/change_gem_s3
+e695e483d4b8c88242e4063fa29752d8db95636b	refs/heads/guard-rack
+b05f2d5aadef354d377e592e3b5080fcdec2d21f	refs/heads/master
+72f6e6e2545829b9901e83e943693a2bf35c0f61	refs/heads/qa
+7299c54e0e1cfce94569a3af9f742cabc5c7f518	refs/heads/test_pr
+  INFO [6baf1f09] Finished in 2.115 seconds with exit status 0 (successful).
+  INFO [3ef5aedd] Running /usr/bin/env mkdir -p /opt/deployer/apps/sins3/shared /opt/deployer/apps/sins3/releases as deployer@vagrant
+ DEBUG [3ef5aedd] Command: /usr/bin/env mkdir -p /opt/deployer/apps/sins3/shared /opt/deployer/apps/sins3/releases
+  INFO [3ef5aedd] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [236636d1] Running [ -f /opt/deployer/apps/sins3/current/REVISION ] as deployer@vagrant
+ DEBUG [236636d1] Command: [ -f /opt/deployer/apps/sins3/current/REVISION ]
+ DEBUG [236636d1] Finished in 0.004 seconds with exit status 1 (failed).
+ DEBUG [7e1ccf6f] Running [ -f /opt/deployer/apps/sins3/repo/HEAD ] as deployer@vagrant
+ DEBUG [7e1ccf6f] Command: [ -f /opt/deployer/apps/sins3/repo/HEAD ]
+ DEBUG [7e1ccf6f] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /opt/deployer/apps/sins3/repo
+ DEBUG [32cae5d9] Running if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [32cae5d9] Command: if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi
+ DEBUG [32cae5d9] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [eb147099] Running /usr/bin/env git remote update --prune as deployer@vagrant
+ DEBUG [eb147099] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [eb147099] 	Fetching origin
+ DEBUG [eb147099] 	Error reading response length from authentication socket.
+  INFO [eb147099] Finished in 2.498 seconds with exit status 0 (successful).
+ DEBUG [5e069aa0] Running if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [5e069aa0] Command: if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi
+ DEBUG [5e069aa0] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [143a128e] Running /usr/bin/env mkdir -p /opt/deployer/apps/sins3/releases/20170203143118 as deployer@vagrant
+ DEBUG [143a128e] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env mkdir -p /opt/deployer/apps/sins3/releases/20170203143118 )
+  INFO [143a128e] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [d564d7cc] Running /usr/bin/env git archive qa | tar -x -f - -C /opt/deployer/apps/sins3/releases/20170203143118 as deployer@vagrant
+ DEBUG [d564d7cc] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git archive qa | tar -x -f - -C /opt/deployer/apps/sins3/releases/20170203143118 )
+  INFO [d564d7cc] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [544343f4] Running if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [544343f4] Command: if test ! -d /opt/deployer/apps/sins3/repo; then echo "Directory does not exist '/opt/deployer/apps/sins3/repo'" 1>&2; false; fi
+ DEBUG [544343f4] Finished in 0.004 seconds with exit status 0 (successful).
+ DEBUG [0e7da466] Running /usr/bin/env git rev-list --max-count=1 qa as deployer@vagrant
+ DEBUG [0e7da466] Command: cd /opt/deployer/apps/sins3/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/sins3/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 qa )
+ DEBUG [0e7da466] 	72f6e6e2545829b9901e83e943693a2bf35c0f61
+ DEBUG [0e7da466] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [bd47145b] Running if test ! -d /opt/deployer/apps/sins3/releases/20170203143118; then echo "Directory does not exist '/opt/deployer/apps/sins3/releases/20170203143118'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [bd47145b] Command: if test ! -d /opt/deployer/apps/sins3/releases/20170203143118; then echo "Directory does not exist '/opt/deployer/apps/sins3/releases/20170203143118'" 1>&2; false; fi
+ DEBUG [bd47145b] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [030c95c6] Running /usr/bin/env echo "72f6e6e2545829b9901e83e943693a2bf35c0f61" >> REVISION as deployer@vagrant
+ DEBUG [030c95c6] Command: cd /opt/deployer/apps/sins3/releases/20170203143118 && /usr/bin/env echo "72f6e6e2545829b9901e83e943693a2bf35c0f61" >> REVISION
+  INFO [030c95c6] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [965f0e30] Running /usr/bin/env ln -s /opt/deployer/apps/sins3/releases/20170203143118 /opt/deployer/apps/sins3/releases/current as deployer@vagrant
+ DEBUG [965f0e30] Command: /usr/bin/env ln -s /opt/deployer/apps/sins3/releases/20170203143118 /opt/deployer/apps/sins3/releases/current
+  INFO [965f0e30] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [d439507f] Running /usr/bin/env mv /opt/deployer/apps/sins3/releases/current /opt/deployer/apps/sins3 as deployer@vagrant
+ DEBUG [d439507f] Command: /usr/bin/env mv /opt/deployer/apps/sins3/releases/current /opt/deployer/apps/sins3
+  INFO [d439507f] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [4346b3df] Running /usr/bin/env ls -xtr /opt/deployer/apps/sins3/releases as deployer@vagrant
+ DEBUG [4346b3df] Command: /usr/bin/env ls -xtr /opt/deployer/apps/sins3/releases
+ DEBUG [4346b3df] 	20170203142305	20170203143118
+ DEBUG [4346b3df] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [10b4525c] Running if test ! -d /opt/deployer/apps/sins3/releases; then echo "Directory does not exist '/opt/deployer/apps/sins3/releases'" 1>&2; false; fi as deployer@vagrant
+ DEBUG [10b4525c] Command: if test ! -d /opt/deployer/apps/sins3/releases; then echo "Directory does not exist '/opt/deployer/apps/sins3/releases'" 1>&2; false; fi
+ DEBUG [10b4525c] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [25f99eff] Running /usr/bin/env echo "Branch qa (at 72f6e6e2545829b9901e83e943693a2bf35c0f61) deployed as release 20170203143118 by nicof" >> /opt/deployer/apps/sins3/revisions.log as deployer@vagrant
+ DEBUG [25f99eff] Command: cd /opt/deployer/apps/sins3/releases && /usr/bin/env echo "Branch qa (at 72f6e6e2545829b9901e83e943693a2bf35c0f61) deployed as release 20170203143118 by nicof" >> /opt/deployer/apps/sins3/revisions.log
+  INFO [25f99eff] Finished in 0.005 seconds with exit status 0 (successful).
