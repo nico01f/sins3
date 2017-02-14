@@ -1,13 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-<<<<<<< HEAD
-set :branch, ENV['BRANCH'] if ENV['BRANCH']
-
-
-=======
-set :branch, ENV.fetch("CAPISTRANO_BRANCH", "qa")
->>>>>>> develop
 set :application, 'sins3'
 set :repo_url, 'git@github.com:nico01f/sins3.git'
 
