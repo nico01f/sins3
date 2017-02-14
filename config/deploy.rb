@@ -1,12 +1,11 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :branch, ENV.fetch("CAPISTRANO_BRANCH", "qa")
 set :application, 'sins3'
 set :repo_url, 'git@github.com:nico01f/sins3.git'
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/opt/deployer/apps/sins3'
